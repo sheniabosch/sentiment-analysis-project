@@ -39,6 +39,7 @@ def split_data(
             df["text"], df["label"], test_size=0.2, random_state=42
         )
     return X_train, X_test, y_train, y_test
+
 def train_model(X_train: pd.Series, y_train: pd.Series) -> Pipeline:
     """
     Builds and trains a classification pipeline.
@@ -49,3 +50,7 @@ def train_model(X_train: pd.Series, y_train: pd.Series) -> Pipeline:
     )
     clf_pipeline.fit(X_train, y_train)
     return clf_pipeline
+
+def print_summary():
+    summary = print("Summary")
+    return summary
