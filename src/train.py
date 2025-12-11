@@ -10,11 +10,14 @@ def load_and_validate_data(data_path: str) -> pd.DataFrame:
     """
     Loads data from a CSV and ensures it has the required columns.
     """
+    # reads csv file and assign it to a DataFrame
     df = pd.read_csv(data_path)
+    # checks if the df column structure is correct, if not raise a error
     if not {"text", "label"}.issubset(df.columns):
         raise ValueError("CSV must contain 'text' and 'label' columns")
     return df
 
+# check if the script is being run directly
 if __name__ == "__main__":
     df = load_and_validate_data("sentiments.csv")
     print(df.head())
